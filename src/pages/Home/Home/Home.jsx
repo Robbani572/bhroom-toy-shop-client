@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
+import Shop from "../Shop/Shop";
 
 
 const Home = () => {
@@ -10,6 +11,9 @@ const Home = () => {
             </div>
             <div className="max-w-7xl mx-auto">
                 <Gallery></Gallery>
+            </div>
+            <div className="max-w-7xl mx-auto">
+                <Shop></Shop>
             </div>
         </div>
     );
