@@ -6,13 +6,13 @@ import Shop from "../Shop/Shop";
 const Home = () => {
     return (
         <div className=''>
-            <div className="max-w-7xl mx-auto">
+            <div className="">
                 <Banner></Banner>
             </div>
-            <div className="max-w-7xl mx-auto">
+            <div className="">
                 <Gallery></Gallery>
             </div>
-            <div className="max-w-7xl mx-auto">
+            <div className="">
                 <Shop></Shop>
             </div>
         </div>

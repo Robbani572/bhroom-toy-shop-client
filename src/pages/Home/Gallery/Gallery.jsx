@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazy-load'
 import img1 from '../../../assets/images/1.png'
 import img2 from '../../../assets/images/2.jpg'
 import img3 from '../../../assets/images/3.jpg'
@@ -14,24 +15,36 @@ const Gallery = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8 bg-base-200 p-8">
                 <div className="col">
-                    <img src={img1} alt="" />
+                    <LazyLoad>
+                        <img src={img1} alt="" />
+                    </LazyLoad>
                 </div>
                 <div className="col">
-                    <img src={img2} alt="" />
+                    <LazyLoad>
+                        <img src={img2} alt="" />
+                    </LazyLoad>
                 </div>
                 <div className="col">
-                    <img src={img3} alt="" />
+                    <LazyLoad>
+                        <img src={img3} alt="" />
+                    </LazyLoad>
                 </div>
                 <div className="col">
-                    <img src={img4} alt="" />
+                    <LazyLoad>
+                        <img src={img4} alt="" />
+                    </LazyLoad>
                 </div>
                 <div className="col">
-                    <img src={img5} alt="" />
+                    <LazyLoad>
+                        <img src={img5} alt="" />
+                    </LazyLoad>
                 </div>
                 <div className="col">
-                    <img src={img6} alt="" />
+                    <LazyLoad>
+                        <img src={img6} alt="" />
+                    </LazyLoad>
                 </div>
-                
+
             </div>
         </div>
     );

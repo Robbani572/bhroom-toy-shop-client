@@ -2,7 +2,7 @@ import logo from '../../../assets/images/bhrom-logo1.png'
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content max-w-7xl container mx-auto mt-20">
+        <footer className="footer p-10 bg-base-200 text-base-content mt-20">
             <div>
                 <img src={logo} alt="" />
             </div>

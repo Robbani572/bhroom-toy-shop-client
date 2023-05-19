@@ -1,6 +1,7 @@
 import { Rating } from '@smastrom/react-rating'
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import LazyLoad from 'react-lazy-load';
 
 const Cards = ({ toy }) => {
 
@@ -8,7 +9,9 @@ const Cards = ({ toy }) => {
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl col">
-            <figure><img src={img} alt="Shoes" /></figure>
+            <LazyLoad>
+                <figure><img src={img} alt="Shoes" /></figure>
+            </LazyLoad>
             <div className="card-body">
                 <div className="flex justify-between items-center">
                     <h2 className="card-title">{name}</h2>

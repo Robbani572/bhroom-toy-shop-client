@@ -1,5 +1,6 @@
 import { Rating } from '@smastrom/react-rating'
 import { FaCheck, FaCross } from "react-icons/fa";
+import LazyLoad from 'react-lazy-load';
 import { useLoaderData } from "react-router-dom";
 
 
@@ -14,7 +15,9 @@ const CardDetails = () => {
             <div className="grid md:grid-cols-12 lg:grid-cols-12 gap-12">
                 <div className="md:col-span-8 lg:col-span-8">
                     <div className="card card-compact bg-base-100">
-                        <figure><img className="h-[500px] w-full" src={img} alt="Shoes" /></figure>
+                        <LazyLoad>
+                            <figure><img className="h-[500px] w-full" src={img} alt="Shoes" /></figure>
+                        </LazyLoad>
                         <div className="card-body">
                             <h2 className="title text-4xl font-semibold text-[#1C0E0B]">{toy.name}</h2>
                             <div className="mt-8 flex flex-col gap-4">

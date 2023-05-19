@@ -16,7 +16,7 @@ const NavBar = () => {
     </>
 
     return (
-        <div className="navbar max-w-7xl mx-auto">
+        <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,7 +38,7 @@ const NavBar = () => {
             <div className="navbar-end">
                 {
                     user ? <Link><button className="btn ">Log out</button></Link> :
-                    <Link><button className="btn bg-[#1C0E0B]">Login</button></Link>
+                    <Link to="/login"><button className="btn bg-[#1C0E0B]">Login</button></Link>
                 }
             </div>
         </div>
