@@ -2,6 +2,20 @@ import { Link } from 'react-router-dom';
 import login from '../../../assets/images/Authentication/login.svg'
 
 const Register = () => {
+
+    const handleRegister = (event) => {
+        event.preventDefault()
+
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirm = form.confirm.value;
+
+        console.log(name, email, password, confirm)
+        
+    }
+
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">
@@ -11,7 +25,7 @@ const Register = () => {
                 <div className="card flex-shrink-0 max-w-sm shadow-2xl bg-base-100 md:w-full">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold">Register To Explore Bhroom!!</h1>
-                        <form>
+                        <form onSubmit={handleRegister}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

@@ -3,7 +3,16 @@ import login from '../../../assets/images/Authentication/login.svg'
 
 const Login = () => {
 
-    
+    const handleLogIn = (event) => {
+        event.preventDefault()
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password)
+        
+    }
 
     return (
         <div className="hero min-h-screen">
@@ -14,7 +23,7 @@ const Login = () => {
                 <div className="card flex-shrink-0 max-w-md shadow-2xl bg-base-100 md:w-full">
                     <div className="card-body">
                         <h1 className="text-3xl text-center font-bold">Login To Bhroom!!</h1>
-                        <form>
+                        <form onSubmit={handleLogIn}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

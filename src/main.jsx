@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import './index.css'
 import '@smastrom/react-rating/style.css'
 import router from './Routes/Routes'
-import AuthProvider from './providers/AuthProvider/AuthProvider'
+import AuthProvider from './provider/AuthProvider/AuthProvider'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div>
