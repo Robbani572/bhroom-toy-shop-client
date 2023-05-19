@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/bhrom-logo1.png";
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 
 
 const NavBar = () => {
 
-    const [user, setUser] = useState()
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+    }
 
     const navItems = <>
-        <li className="text-[#1C0E0B] font-bold text-xl"><Link>Home</Link></li>
-        <li className="text-[#1C0E0B] font-bold text-xl"><Link>All Toys</Link></li>
+        <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/">Home</Link></li>
+        <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/alltoys">All Toys</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link>Add Toys</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link>My Toys</Link></li>
-        <li className="text-[#1C0E0B] font-bold text-xl"><Link>Blogs</Link></li>
+        <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/blogs">Blogs</Link></li>
     </>
 
     return (
@@ -37,7 +42,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? <Link><button className="btn ">Log out</button></Link> :
+                    user ? <Link onClick={handleLogOut}><button className="btn ">Log out</button></Link> :
                     <Link to="/login"><button className="btn bg-[#1C0E0B]">Login</button></Link>
                 }
             </div>

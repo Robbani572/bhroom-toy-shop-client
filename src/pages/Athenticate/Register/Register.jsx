@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import login from '../../../assets/images/Authentication/login.svg'
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const { createUser } = useContext(AuthContext)
+    const [error, setError] = useState()
+    const [success, setSuccess] = useState()
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -13,7 +19,19 @@ const Register = () => {
         const confirm = form.confirm.value;
 
         console.log(name, email, password, confirm)
-        
+
+        createUser(email, password)
+            .then(result => {
+                const newUser = result.user;
+                form.reset()
+                setSuccess('User created successfuly')
+                console.log(newUser)
+            })
+            .catch(err => {
+                console.log(err)
+                setError(err.message)
+            })
+
     }
 
     return (
@@ -59,6 +77,8 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-[#1C0E0B]">Register</button>
                                 <p className='text-center mt-4'>Already have account? <Link className='text-orange-500 font-semibold' to="/login">Login</Link></p>
+                                <p className='text-orange-700 text-center'>{error}</p>
+                                <p className='text-green-600 text-center'>{success}</p>
                             </div>
                         </form>
                     </div>

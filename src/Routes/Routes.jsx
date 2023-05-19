@@ -5,6 +5,8 @@ import CardDetails from '../pages/CardDetails/CardDetails';
 import Login from '../pages/Athenticate/Login/Login';
 import Register from '../pages/Athenticate/Register/Register';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import Blogs from '../pages/Blogs/Blogs';
+import AllToys from '../pages/AllToys/AllToys';
 
 
 const router = createBrowserRouter([
@@ -17,9 +19,14 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: "alltoys",
+                element: <AllToys></AllToys>,
+                loader: () => fetch(`https://bhroom-toy-shop-server.vercel.app/products`)
+            },
+            {
                 path: "details/:id",
                 element: <CardDetails></CardDetails>,
-                loader: ({params}) => fetch(`http://localhost:5444/products/${params.id}`)
+                loader: ({params}) => fetch(`https://bhroom-toy-shop-server.vercel.app/products/${params.id}`)
             },
             {
                 path: "login",
@@ -28,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path: "register",
                 element: <Register></Register>
+            },
+            {
+                path: "blogs",
+                element: <Blogs></Blogs>
             }
         ]
     },

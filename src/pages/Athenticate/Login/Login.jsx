@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import login from '../../../assets/images/Authentication/login.svg'
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    const {singInUser, loading} = useContext(AuthContext)
+    const [error, setError] = useState()
+    const [success, setSuccess] = useState()
 
     const handleLogIn = (event) => {
         event.preventDefault()
@@ -11,6 +17,18 @@ const Login = () => {
         const password = form.password.value;
 
         console.log(email, password)
+
+        singInUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            form.reset()
+            setSuccess('Logged in successfuly')
+            console.log(loggedUser)
+        })
+        .catch(err => {
+            console.log(err)
+            setError(err.message)
+        })
         
     }
 
@@ -42,6 +60,8 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-[#1C0E0B]">Login</button>
                                 <p className='text-center mt-4'>Do not have account? <Link className='text-orange-500 font-semibold' to="/register">Register</Link></p>
+                                <p className='text-orange-700 text-center'>{error}</p>
+                                <p className='text-green-600 text-center'>{success}</p>
                             </div>
                         </form>
                     </div>

@@ -59,7 +59,7 @@ const CardDetails = () => {
                                         <textarea className='w-full py-2 px-2 rounded border ' name="message" id="" cols="30" rows="10" placeholder='Messege'></textarea>
                                     </div>
                                     <div className='mt-4 col md:col-span-2'>
-                                        <button className="btn btn-block bg-[#1C0E0B] border-0 bottom-0">Order Confirm</button>
+                                        <button className="btn btn-block bg-[#1C0E0B] border-0 bottom-0">Submit</button>
                                     </div>
                                 </div>
                             </div>
