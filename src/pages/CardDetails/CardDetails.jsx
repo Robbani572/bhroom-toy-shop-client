@@ -8,7 +8,7 @@ const CardDetails = () => {
 
     const toy = useLoaderData()
 
-    const { img, title, price, ratings, shipping, ratingsCount, stock, seller } = toy
+    const { img, price, rating, shipping, ratingCount, stock, seller } = toy
 
     return (
         <div className="max-w-7xl mx-auto mt-20 p-4 min-h-screen">
@@ -33,8 +33,8 @@ const CardDetails = () => {
                             </div>
                             <div className="card-actions justify-between mt-8 items-center">
                                 <div className='flex items-center gap-2'>
-                                    <Rating className='w-6 h-6' value={ratings} readOnly />
-                                    <p className='text-xl font-bold text-orange-500 flex'>{ratings} <span className='text-[#1C0E0B]'>({ratingsCount})</span> </p>
+                                    <Rating className='w-6 h-6' value={rating} readOnly />
+                                    <p className='text-xl font-bold text-orange-500 flex'>{rating} <span className='text-[#1C0E0B]'>({ratingCount})</span> </p>
                                 </div>
                                 <button className="btn bg-[#1C0E0B]">Add To List</button>
                             </div>

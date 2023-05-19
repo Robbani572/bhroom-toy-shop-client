@@ -15,7 +15,7 @@ const NavBar = () => {
     const navItems = <>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/">Home</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/alltoys">All Toys</Link></li>
-        <li className="text-[#1C0E0B] font-bold text-xl"><Link>Add Toys</Link></li>
+        <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/addtoys">Add Toys</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link>My Toys</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/blogs">Blogs</Link></li>
     </>
@@ -42,7 +42,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? <Link onClick={handleLogOut}><button className="btn ">Log out</button></Link> :
+                    user ? <Link onClick={handleLogOut}><button className="btn bg-[#1C0E0B]">Log out</button></Link> :
                     <Link to="/login"><button className="btn bg-[#1C0E0B]">Login</button></Link>
                 }
             </div>

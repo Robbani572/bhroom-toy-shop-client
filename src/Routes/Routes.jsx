@@ -7,6 +7,7 @@ import Register from '../pages/Athenticate/Register/Register';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Blogs from '../pages/Blogs/Blogs';
 import AllToys from '../pages/AllToys/AllToys';
+import AddToys from '../pages/AddToys/AddToys';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
                 path: "alltoys",
                 element: <AllToys></AllToys>,
                 loader: () => fetch(`https://bhroom-toy-shop-server.vercel.app/products`)
+            },
+            {
+                path: "addtoys",
+                element: <AddToys></AddToys>
             },
             {
                 path: "details/:id",
@@ -40,6 +45,7 @@ const router = createBrowserRouter([
                 path: "blogs",
                 element: <Blogs></Blogs>
             }
+
         ]
     },
     {
