@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/bhrom-logo1.png";
+import avatar from '../../../assets/images/Avatar/avatar1.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 
 
 const NavBar = () => {
 
-    const {user, logOut} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const handleLogOut = () => {
         logOut()
@@ -42,8 +43,21 @@ const NavBar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? <Link onClick={handleLogOut}><button className="btn bg-[#1C0E0B]">Log out</button></Link> :
-                    <Link to="/login"><button className="btn bg-[#1C0E0B]">Login</button></Link>
+                    user ? <div className={`flex gap-6 items-center`}>
+                        <div className="relative">
+                            <div className="">
+                                {
+                                    user.photoURL ? <img className="w-14 rounded-full" src={user.photoURL} alt="" /> :
+                                        <img className="w-14 rounded-full" src={avatar} alt="" />
+                                }
+                            </div>
+                            <div className="absolute bottom-0 opacity-0 hover:opacity-100 flex justify-center items-center rounded-full font-bold cursor-pointer w-14 h-14 hover:bg-slate-300">
+                                <p className="font-bold">{user.displayName}</p>
+                            </div>
+                        </div>
+                        <Link onClick={handleLogOut}><button className="btn bg-[#1C0E0B]">Log out</button></Link>
+                    </div> :
+                        <Link to="/login"><button className="btn bg-[#1C0E0B]">Login</button></Link>
                 }
             </div>
         </div>

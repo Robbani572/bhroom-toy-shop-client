@@ -5,7 +5,7 @@ import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUser } = useContext(AuthContext)
     const [error, setError] = useState()
     const [success, setSuccess] = useState()
 
@@ -13,8 +13,9 @@ const Register = () => {
         event.preventDefault()
 
         const form = event.target;
-        const name = form.name.value;
+        const displayName = form.name.value;
         const email = form.email.value;
+        const photoURL = form.photo.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
 
@@ -25,12 +26,18 @@ const Register = () => {
                 const newUser = result.user;
                 form.reset()
                 setSuccess('User created successfuly')
+                updateUser(displayName, photoURL)
+                        .then()
+                        .catch(error => {
+                            console.log(error)
+                        })
                 console.log(newUser)
             })
             .catch(err => {
                 console.log(err)
                 setError(err.message)
             })
+
 
     }
 
@@ -55,6 +62,12 @@ const Register = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo Url</span>
+                                </label>
+                                <input type="text" name='photo' placeholder="Url" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
