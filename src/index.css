@@ -9,3 +9,12 @@
 .main-bg{
     background-color: rgba(225, 225, 225, 0.37);
 }
+
+.login-bg{
+    background-image: url(./assets//images/bg2.png);
+}
+
+.register-bg{
+    background-image: url(./assets//images/bg2.png);
+}
+

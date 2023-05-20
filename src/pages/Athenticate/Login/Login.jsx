@@ -24,7 +24,10 @@ const Login = () => {
 
         singInUser(email, password)
         .then(result => {
-            const loggedUser = result.user;
+            const user = result.user;
+            const userEmail = {
+                email: user.email
+            }
             form.reset()
             setSuccess('Logged in successfuly')
             Swal.fire({
@@ -33,7 +36,19 @@ const Login = () => {
                 icon: 'success',
                 confirmButtonText: 'Ok'
               })
-            navigate(from, {replace: true})
+            fetch('http://localhost:5444/jwtToken', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(userEmail)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('token', data.token)
+                navigate(from, {replace: true})
+            })
         })
         .catch(err => {
             console.log(err)
@@ -43,7 +58,8 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen max-w-7xl container mx-auto">
+        <div className='min-h-screen login-bg'>
+            <div className="hero max-w-7xl container mx-auto">
             <div className="hero-content flex-col gap-8 lg:flex-row">
                 <div className="md:w-full text-center lg:text-left">
                     <img src={login} alt="" />
@@ -77,6 +93,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

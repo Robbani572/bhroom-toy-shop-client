@@ -11,6 +11,10 @@ const NavBar = () => {
 
     const handleLogOut = () => {
         logOut()
+        .then(() => {
+            localStorage.removeItem('token')
+        })
+        .catch(error => console.log(error))
     }
 
     const navItems = <>

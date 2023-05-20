@@ -54,7 +54,8 @@ const Register = () => {
     }
 
     return (
-        <div className="hero min-h-screen max-w-7xl container mx-auto">
+        <div className='min-h-screen register-bg'>
+            <div className="hero max-w-7xl container mx-auto">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="md:w-full text-center lg:text-left">
                     <img src={login} alt="" />
@@ -103,6 +104,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

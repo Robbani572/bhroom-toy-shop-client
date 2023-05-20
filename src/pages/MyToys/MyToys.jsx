@@ -1,23 +1,37 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
-import { data } from "autoprefixer";
 import MyToysTable from "./MyToysTable";
 import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 
 
 const MyToys = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [toys, setToys] = useState([])
+    const navigate = useNavigate()
 
     const url = `http://localhost:5444/products?email=${user?.email}`;
     console.log(user.email)
 
     useEffect(() => {
-        fetch(url)
+        fetch(url, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
-            .then(data => setToys(data))
-    }, [])
+            .then(data => {
+                if(!data.error){
+                    setToys(data)
+                }
+                else{
+                    logOut()
+                    navigate('/')
+                }
+            })
+    }, [url, navigate, logOut])
 
     const handleDelete = id => {
         const procced = confirm('Are you sure?')
@@ -43,7 +57,8 @@ const MyToys = () => {
     }
 
     return (
-        <div className="min-h-screen max-w-7xl container mx-auto">
+        <div className="my-32">
+            <div className="min-h-screen max-w-7xl container mx-auto">
             <h3>My toys: {toys.length}</h3>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
@@ -73,6 +88,7 @@ const MyToys = () => {
 
                 </table>
             </div>
+        </div>
         </div>
     );
 };

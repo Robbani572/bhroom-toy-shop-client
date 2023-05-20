@@ -8,9 +8,9 @@ const Cards = ({ toy }) => {
     const { _id, name, img, price, rating, description } = toy;
 
     return (
-        <div className="card w-96 rounded-none bg-base-100 shadow-sm col">
+        <div className="card w-96 rounded-none bg-base-100 shadow-sm col mb-20">
             <LazyLoad>
-                <figure><img src={img} alt="Shoes" /></figure>
+                <figure className='p-4 rounded-md'><img src={img} alt="Shoes" /></figure>
             </LazyLoad>
             <div className="card-body">
                 <div className="flex justify-between items-center">
