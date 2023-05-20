@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MyToysTable = ({toy, handleDelete}) => {
 
-    const {_id, img, price, category, stock, seller, name } = toy
+    const {_id, img, price, category, stock, name } = toy
 
     
 

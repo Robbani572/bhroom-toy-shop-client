@@ -9,10 +9,6 @@ const CardDetails = () => {
 
     const toy = useLoaderData()
 
-    const handleAddToLocalDb = (id) => {
-        addToLocalDb(id)
-    }
-
     const { _id, img, price, rating, shipping, ratingCount, stock, seller } = toy
 
     return (
@@ -41,7 +37,7 @@ const CardDetails = () => {
                                     <Rating className='w-6 h-6' value={rating} readOnly />
                                     <p className='text-xl font-bold text-orange-500 flex'>{rating} <span className='text-[#1C0E0B]'>({ratingCount})</span> </p>
                                 </div>
-                                <Link onClick={() => handleAddToLocalDb(_id)}><button className="btn bg-[#1C0E0B]">Add To List</button></Link>
+                                <Link><button className="btn bg-[#1C0E0B]">Buy Now</button></Link>
                             </div>
                         </div>
                     </div>

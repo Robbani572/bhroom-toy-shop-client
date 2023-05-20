@@ -5,7 +5,8 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const AddToys = () => {
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    const categorys = ["Sports car", "Mini Fire Truck", "Truck", "Regular Car", "Mini Police Car"]
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -64,7 +65,16 @@ const AddToys = () => {
                             <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="text" name='category' placeholder="Subcategory" className="input input-bordered" required />
+                            <input type="text" list="data" name='category' placeholder="Subcategory" className="input input-bordered" required />
+                            <datalist id="data">
+                                {/* <option>Sports car</option>
+                                <option>Mini Fire Truck</option>
+                                <option>Truck</option>
+                                <option>Regular Car</option> */}
+                                {
+                                    categorys.map(cat => <option key={cat}>{cat}</option>)
+                                }
+                            </datalist>
                         </div>
                         <div className="form-control col">
                             <input type="text" name='photo' placeholder="Photo Url" className="input input-bordered" required />
