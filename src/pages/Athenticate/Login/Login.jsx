@@ -1,13 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../assets/images/Authentication/login.png'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Login = () => {
 
     const {singInUser, loading} = useContext(AuthContext)
     const [error, setError] = useState()
     const [success, setSuccess] = useState()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogIn = (event) => {
         event.preventDefault()
@@ -23,7 +27,13 @@ const Login = () => {
             const loggedUser = result.user;
             form.reset()
             setSuccess('Logged in successfuly')
-            console.log(loggedUser)
+            Swal.fire({
+                title: 'Success!',
+                text: 'You are logged in',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+            navigate(from, {replace: true})
         })
         .catch(err => {
             console.log(err)
@@ -33,7 +43,7 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen">
+        <div className="hero min-h-screen max-w-7xl container mx-auto">
             <div className="hero-content flex-col gap-8 lg:flex-row">
                 <div className="md:w-full text-center lg:text-left">
                     <img src={login} alt="" />

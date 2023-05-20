@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/bhrom-logo1.png";
-import avatar from '../../../assets/images/Avatar/avatar1.jpg'
+import avatar from "../../../assets/images/New folder/avatar1.png"
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 
@@ -22,7 +22,7 @@ const NavBar = () => {
     </>
 
     return (
-        <div className="navbar">
+        <div className="navbar max-w-7xl container mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -52,7 +52,7 @@ const NavBar = () => {
                                 }
                             </div>
                             <div className="absolute bottom-0 opacity-0 hover:opacity-100 flex justify-center items-center rounded-full font-bold cursor-pointer w-14 h-14 hover:bg-slate-300">
-                                <p className="font-bold">{user.displayName}</p>
+                                <p className="font-bold text-xl">{user.displayName}</p>
                             </div>
                         </div>
                         <Link onClick={handleLogOut}><button className="btn bg-[#1C0E0B]">Log out</button></Link>

@@ -8,7 +8,7 @@ const AllToys = () => {
 
     return (
         <>
-            <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full max-w-7xl container mx-auto">
                 <table className="table w-full">
                     {/* head */}
                     <thead>

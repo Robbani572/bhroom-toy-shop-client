@@ -14,9 +14,9 @@ const Shop = () => {
     }, [])
 
     return (
-        <div className="mt-20">
+        <div className="mt-20 min-h-screen max-w-7xl container mx-auto">
             <div className="text-center space-y-7 mb-8">
-                <h2 className="text-5xl font-bold text-[#1C0E0B]">Shop</h2>
+                <h2 className="text-5xl font-bold text-[#1C0E0B]">Shop by Category</h2>
                 <h4 className="text-2xl font-semibold">Let's do some shopping with bhroom shop</h4>
             </div>
             <Tabs

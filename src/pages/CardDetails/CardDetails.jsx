@@ -17,7 +17,7 @@ const CardDetails = () => {
                 <div className="md:col-span-8 lg:col-span-8">
                     <div className="card card-compact bg-base-100">
                         <LazyLoad>
-                            <figure><img className="h-[500px] w-full" src={img} alt="Shoes" /></figure>
+                            <figure><img className="h-[500px] rounded w-full" src={img} alt="Shoes" /></figure>
                         </LazyLoad>
                         <div className="card-body">
                             <h2 className="title text-4xl font-semibold text-[#1C0E0B]">{toy.name}</h2>

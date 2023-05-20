@@ -1,13 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../assets/images/Authentication/login.png'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Register = () => {
 
     const { createUser, updateUser } = useContext(AuthContext)
     const [error, setError] = useState()
     const [success, setSuccess] = useState()
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -31,6 +35,14 @@ const Register = () => {
                         .catch(error => {
                             console.log(error)
                         })
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Registered successfuly',
+                            icon: 'success',
+                            confirmButtonText: 'Back To Home'
+                          })
+                          form.reset()
+                        navigate(from, {replace: true})
                 console.log(newUser)
             })
             .catch(err => {
@@ -42,7 +54,7 @@ const Register = () => {
     }
 
     return (
-        <div className="hero min-h-screen">
+        <div className="hero min-h-screen max-w-7xl container mx-auto">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="md:w-full text-center lg:text-left">
                     <img src={login} alt="" />
@@ -55,37 +67,31 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                                <input type="text" name='name' placeholder="name" className="input input-bordered" required/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                                <input type="email" name='email' placeholder="email" className="input input-bordered" required/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo Url</span>
                                 </label>
-                                <input type="text" name='photo' placeholder="Url" className="input input-bordered" />
+                                <input type="text" name='photo' placeholder="Url(optional)" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="password" name='confirm' placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                                <input type="password" name='confirm' placeholder="password" className="input input-bordered" required/>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn bg-[#1C0E0B]">Register</button>

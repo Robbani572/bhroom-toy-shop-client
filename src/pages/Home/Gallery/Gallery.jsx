@@ -8,12 +8,12 @@ import img6 from '../../../assets/images/6.jpg'
 
 const Gallery = () => {
     return (
-        <div className=''>
+        <div className='min-h-screen max-w-7xl container mx-auto'>
             <div className="text-center space-y-7 mb-8">
                 <h2 className="text-5xl font-bold text-[#1C0E0B]">Gallery</h2>
                 <h4 className="text-2xl font-semibold">Some featured products</h4>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 bg-base-200 p-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 p-8">
                 <div className="col">
                     <LazyLoad>
                         <img src={img1} alt="" />

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { data } from "autoprefixer";
 import MyToysTable from "./MyToysTable";
+import Swal from 'sweetalert2'
 
 
 const MyToys = () => {
@@ -28,7 +29,12 @@ const MyToys = () => {
             .then(data => {
                 console.log(data)
                 if(data.deletedCount > 0){
-                    alert('Deleted successful')
+                    Swal.fire({
+                        title: 'Delete Successful!',
+                        text: 'You have deleted one item',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
                     const remaining = toys.filter(booking => booking._id !== id)
                     setToys(remaining)
                 }
@@ -37,7 +43,7 @@ const MyToys = () => {
     }
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen max-w-7xl container mx-auto">
             <h3>My toys: {toys.length}</h3>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">

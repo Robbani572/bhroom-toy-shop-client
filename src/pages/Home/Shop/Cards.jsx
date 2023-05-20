@@ -8,7 +8,7 @@ const Cards = ({ toy }) => {
     const { _id, name, img, price, rating, description } = toy;
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl col">
+        <div className="card w-96 rounded-none bg-base-100 shadow-sm col">
             <LazyLoad>
                 <figure><img src={img} alt="Shoes" /></figure>
             </LazyLoad>

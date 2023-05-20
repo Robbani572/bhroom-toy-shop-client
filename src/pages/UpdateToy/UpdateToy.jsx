@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { addToLocalDb } from "../../utilitis/localdb";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const UpdateToy = () => {
 
     const {user} = useContext(AuthContext)
     const toy = useLoaderData()
+    const navigate = useNavigate()
 
     const {_id, img, price, category, stock, name, seler, rating, ratingCount, shipping, description } = toy
 
@@ -53,13 +54,20 @@ const UpdateToy = () => {
             .then(data => {
                 console.log(data)
                 if(data.modifiedCount> 0){
-                    alert('successful')
+                    form.reset()
+                    Swal.fire({
+                        title: 'Update Successful!',
+                        text: 'Toy updated successfuly',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+                navigate('/mytoys')
                 }
             })
     }
 
     return (
-        <div className='mt-24 mb-24 bg-[#F3F3F3]'>
+        <div className='mt-24 mb-24 bg-[#F3F3F3] max-w-7xl container mx-auto'>
             <h1 className='text-center text-4xl font-bold pt-12 text-[#1C0E0B]'>Update Details: {name}</h1>
             <form onSubmit={handleUpdateToy}>
                 <div className="p-8 md:p-20">

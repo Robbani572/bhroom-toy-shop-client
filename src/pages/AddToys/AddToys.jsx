@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { addToLocalDb } from "../../utilitis/localdb";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const AddToys = () => {
 
     const { user } = useContext(AuthContext)
-    const categorys = ["Sports car", "Mini Fire Truck", "Truck", "Regular Car", "Mini Police Car"]
+    const categorys = ["Sports Car", "Mini Fire Truck", "Truck", "Regular Car", "Mini Police Car"]
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -51,12 +51,20 @@ const AddToys = () => {
             .then(data => {
                 console.log(data)
                 const id = data.insertedId;
-                addToLocalDb(id)
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy added successfuly',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+                      form.reset()
+                }
             })
     }
 
     return (
-        <div className='mt-24 mb-24 bg-[#F3F3F3]'>
+        <div className='mt-24 mb-24 bg-[#F3F3F3] max-w-7xl container mx-auto'>
             <h1 className='text-center text-4xl font-bold pt-12 text-[#1C0E0B]'>Insert Toy Details</h1>
             <form onSubmit={handleAddToy}>
                 <div className="p-8 md:p-20">
@@ -67,10 +75,6 @@ const AddToys = () => {
                         <div className="form-control col">
                             <input type="text" list="data" name='category' placeholder="Subcategory" className="input input-bordered" required />
                             <datalist id="data">
-                                {/* <option>Sports car</option>
-                                <option>Mini Fire Truck</option>
-                                <option>Truck</option>
-                                <option>Regular Car</option> */}
                                 {
                                     categorys.map(cat => <option key={cat}>{cat}</option>)
                                 }

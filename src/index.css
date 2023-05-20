@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.gallery-bg{
+    background-image: url(./assets/images/bg1.png);
+}
+
+.main-bg{
+    background-color: rgba(225, 225, 225, 0.37);
+}
