@@ -16,7 +16,7 @@ const NavBar = () => {
         <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/">Home</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/alltoys">All Toys</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/addtoys">Add Toys</Link></li>
-        <li className="text-[#1C0E0B] font-bold text-xl"><Link>My Toys</Link></li>
+        <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/mytoys">My Toys</Link></li>
         <li className="text-[#1C0E0B] font-bold text-xl"><Link to="/blogs">Blogs</Link></li>
     </>
 
