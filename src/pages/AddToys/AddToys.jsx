@@ -1,3 +1,4 @@
+import { addToLocalDb } from "../../utilitis/localdb";
 
 
 const AddToys = () => {
@@ -41,10 +42,12 @@ const AddToys = () => {
             },
             body: JSON.stringify(newToy)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                const id = data.insertedId;
+                addToLocalDb(id)
+            })
     }
 
     return (
@@ -54,34 +57,34 @@ const AddToys = () => {
                 <div className="p-8 md:p-20">
                     <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-12'>
                         <div className="form-control col">
-                            <input type="text" name='name' placeholder="Name"  className="input input-bordered" required />
+                            <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
                             <input type="text" name='category' placeholder="Subcategory" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="text" name='photo' placeholder="Photo Url"  className="input input-bordered" required />
+                            <input type="text" name='photo' placeholder="Photo Url" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="number" name='stock' placeholder="Available Stock"  className="input input-bordered" required />
+                            <input type="number" name='stock' placeholder="Available Stock" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="number" name='price' placeholder="Price"  className="input input-bordered" required />
+                            <input type="text" name='price' placeholder="Price" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="text" name='seler' placeholder="Seler Name"  className="input input-bordered" required />
+                            <input type="text" name='seler' placeholder="Seler Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="email" name='email' placeholder="Seler Email"  className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="Seler Email" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="number" name='rating' placeholder="Product Rating"  className="input input-bordered" required />
+                            <input type="text" name='rating' placeholder="Product Rating" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="number" name='ratingCount' placeholder="Total Rating"  className="input input-bordered" required />
+                            <input type="number" name='ratingCount' placeholder="Total Rating" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="number" name='shipping' placeholder="Shipping"  className="input input-bordered" required />
+                            <input type="text" name='shipping' placeholder="Shipping" className="input input-bordered" required />
                         </div>
                         <div className="form-control col md:col-span-2">
                             <textarea className='w-full py-2 px-2 rounded border ' name="details" id="" cols="30" rows="10" placeholder='Description'></textarea>

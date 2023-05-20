@@ -1,14 +1,19 @@
 import { Rating } from '@smastrom/react-rating'
 import { FaCheck, FaCross } from "react-icons/fa";
 import LazyLoad from 'react-lazy-load';
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { addToLocalDb } from '../../utilitis/localdb';
 
 
 const CardDetails = () => {
 
     const toy = useLoaderData()
 
-    const { img, price, rating, shipping, ratingCount, stock, seller } = toy
+    const handleAddToLocalDb = (id) => {
+        addToLocalDb(id)
+    }
+
+    const { _id, img, price, rating, shipping, ratingCount, stock, seller } = toy
 
     return (
         <div className="max-w-7xl mx-auto mt-20 p-4 min-h-screen">
@@ -36,7 +41,7 @@ const CardDetails = () => {
                                     <Rating className='w-6 h-6' value={rating} readOnly />
                                     <p className='text-xl font-bold text-orange-500 flex'>{rating} <span className='text-[#1C0E0B]'>({ratingCount})</span> </p>
                                 </div>
-                                <button className="btn bg-[#1C0E0B]">Add To List</button>
+                                <Link onClick={() => handleAddToLocalDb(_id)}><button className="btn bg-[#1C0E0B]">Add To List</button></Link>
                             </div>
                         </div>
                     </div>
