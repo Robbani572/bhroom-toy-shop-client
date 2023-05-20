@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import login from '../../../assets/images/Authentication/login.svg'
+import login from '../../../assets/images/Authentication/login.png'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 

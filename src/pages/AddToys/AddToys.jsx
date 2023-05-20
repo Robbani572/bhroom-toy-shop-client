@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { addToLocalDb } from "../../utilitis/localdb";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 
 const AddToys = () => {
+
+    const {user} = useContext(AuthContext)
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -75,7 +79,7 @@ const AddToys = () => {
                             <input type="text" name='seler' placeholder="Seler Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="email" name='email' placeholder="Seler Email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="Seler Email" defaultValue={user?.email} className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
                             <input type="text" name='rating' placeholder="Product Rating" className="input input-bordered" required />

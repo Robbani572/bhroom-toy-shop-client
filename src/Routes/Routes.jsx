@@ -9,6 +9,7 @@ import Blogs from '../pages/Blogs/Blogs';
 import AllToys from '../pages/AllToys/AllToys';
 import AddToys from '../pages/AddToys/AddToys';
 import MyToys from '../pages/MyToys/MyToys';
+import PrivetRoute from './PrivetRoute';
 
 
 const router = createBrowserRouter([
@@ -27,15 +28,15 @@ const router = createBrowserRouter([
             },
             {
                 path: "addtoys",
-                element: <AddToys></AddToys>
+                element: <PrivetRoute><AddToys></AddToys></PrivetRoute>
             },
             {
                 path: "mytoys",
-                element: <MyToys></MyToys>,
+                element: <PrivetRoute><MyToys></MyToys></PrivetRoute>,
             },
             {
                 path: "details/:id",
-                element: <CardDetails></CardDetails>,
+                element: <PrivetRoute><CardDetails></CardDetails></PrivetRoute>,
                 loader: ({params}) => fetch(`https://bhroom-toy-shop-server.vercel.app/products/${params.id}`)
             },
             {
