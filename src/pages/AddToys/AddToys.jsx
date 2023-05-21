@@ -51,14 +51,14 @@ const AddToys = () => {
             .then(data => {
                 console.log(data)
                 const id = data.insertedId;
-                if(data.insertedId){
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Toy added successfuly',
                         icon: 'success',
                         confirmButtonText: 'Cool'
-                      })
-                      form.reset()
+                    })
+                    form.reset()
                 }
             })
     }
@@ -68,23 +68,38 @@ const AddToys = () => {
             <h1 className='text-center text-4xl font-bold pt-12 text-[#1C0E0B]'>Insert Toy Details</h1>
             <form onSubmit={handleAddToy}>
                 <div className="p-8 md:p-20">
-                    <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-12'>
-                        <div className="form-control col">
+                    <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-12'>
+                        <div className="form-control md:col-span-2">
                             <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="text" list="data" name='category' placeholder="Subcategory" className="input input-bordered" required />
+                            {/* <input type="text" list="data" name='category' placeholder="Subcategory" className="input input-bordered" required />
                             <datalist id="data">
                                 {
                                     categorys.map(cat => <option key={cat}>{cat}</option>)
                                 }
-                            </datalist>
-                        </div>
-                        <div className="form-control col">
-                            <input type="text" name='photo' placeholder="Photo Url" className="input input-bordered" required />
+                            </datalist> */}
+                            {/* <div className="dropdown">
+                                <label tabIndex={0} className="btn w-full">Click</label>
+                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li><a>Item 1</a></li>
+                                    <li><a>Item 2</a></li>
+                                </ul>
+                            </div> */}
+                            {/* <input type="text" name='category' placeholder="Subcategory" className="input input-bordered" required /> */}
+                            <select className="input input-bordered" name="category" id="data">
+                                <option value="Sports Car">Sports Car</option>
+                                <option value="Mini Fire Truck">Mini Fire Truck</option>
+                                <option value="Truck">Truck</option>
+                                <option value="Regular Car">Regular Car</option>
+                                <option value="Mini Police Car">Mini Police Car</option>
+                            </select>
                         </div>
                         <div className="form-control col">
                             <input type="number" name='stock' placeholder="Available Stock" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control md:col-span-2">
+                            <input type="text" name='photo' placeholder="Photo Url" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
                             <input type="text" name='price' placeholder="Price" className="input input-bordered" required />
@@ -93,7 +108,7 @@ const AddToys = () => {
                             <input type="text" name='seler' placeholder="Seler Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="email" name='email' placeholder="Seler Email" defaultValue={user?.email} className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="Seler Email" defaultValue={user?.email} className="input input-bordered" required readOnly />
                         </div>
                         <div className="form-control col">
                             <input type="text" name='rating' placeholder="Product Rating" className="input input-bordered" required />
@@ -104,7 +119,7 @@ const AddToys = () => {
                         <div className="form-control col">
                             <input type="text" name='shipping' placeholder="Shipping" className="input input-bordered" required />
                         </div>
-                        <div className="form-control col md:col-span-2">
+                        <div className="form-control col md:col-span-3">
                             <textarea className='w-full py-2 px-2 rounded border ' name="details" id="" cols="30" rows="10" placeholder='Description'></textarea>
                         </div>
                     </div>

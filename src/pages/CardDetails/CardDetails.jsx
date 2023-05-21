@@ -2,7 +2,6 @@ import { Rating } from '@smastrom/react-rating'
 import { FaCheck, FaCross } from "react-icons/fa";
 import LazyLoad from 'react-lazy-load';
 import { Link, useLoaderData } from "react-router-dom";
-import { addToLocalDb } from '../../utilitis/localdb';
 
 
 const CardDetails = () => {

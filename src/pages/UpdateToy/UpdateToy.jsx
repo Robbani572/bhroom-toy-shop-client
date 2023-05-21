@@ -71,18 +71,18 @@ const UpdateToy = () => {
             <h1 className='text-center text-4xl font-bold pt-12 text-[#1C0E0B]'>Update Details: {name}</h1>
             <form onSubmit={handleUpdateToy}>
                 <div className="p-8 md:p-20">
-                    <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-12'>
-                        <div className="form-control col">
+                    <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-12'>
+                        <div className="form-control md:col-span-2">
                             <input type="text" name='name' defaultValue={name} placeholder="Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
                             <input type="text" name='category' defaultValue={category} placeholder="Subcategory" className="input input-bordered" readOnly required />
                         </div>
                         <div className="form-control col">
-                            <input type="text" name='photo' defaultValue={img} placeholder="Photo Url" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control col">
                             <input type="number" name='stock' defaultValue={stock} placeholder="Available Stock" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control md:col-span-2">
+                            <input type="text" name='photo' defaultValue={img} placeholder="Photo Url" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
                             <input type="text" name='price' defaultValue={price} placeholder="Price" className="input input-bordered" required />
@@ -91,7 +91,7 @@ const UpdateToy = () => {
                             <input type="text" name='seler' defaultValue={seler} placeholder="Seler Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control col">
-                            <input type="email" name='email' defaultValue={user?.email} placeholder="Seler Email" className="input input-bordered" required />
+                            <input type="email" name='email' defaultValue={user?.email} placeholder="Seler Email" className="input input-bordered" required readOnly/>
                         </div>
                         <div className="form-control col">
                             <input type="text" name='rating' defaultValue={rating} placeholder="Product Rating" className="input input-bordered" required />
@@ -102,7 +102,7 @@ const UpdateToy = () => {
                         <div className="form-control col">
                             <input type="text" name='shipping' defaultValue={shipping} placeholder="Shipping" className="input input-bordered" required />
                         </div>
-                        <div className="form-control col md:col-span-2">
+                        <div className="form-control col md:col-span-3">
                             <textarea className='w-full py-2 px-2 rounded border' name="details" defaultValue={description} id="" cols="30" rows="10" placeholder='Description'></textarea>
                         </div>
                     </div>
