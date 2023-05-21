@@ -19,7 +19,7 @@ const AllToys = () => {
     // }
     // console.log(totalToys)
 
-    // const url = `http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`
+    // const url = `https://toy-shop1-server.vercel.app/products?page=${currentPage}&limit=${itemsPerPage}`
 
     // useEffect(() => {
     //     const fetchData = async() => {
@@ -37,7 +37,7 @@ const AllToys = () => {
         const search = form.search.value;
         console.log(search)
 
-        const url = `http://localhost:5000/products?name=${search}`
+        const url = `https://toy-shop1-server.vercel.app/products?name=${search}`
 
 
         fetch(url)

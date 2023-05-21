@@ -22,3 +22,6 @@
     background-image: url(./assets/images/bg4.png);
 }
 
+.bg-text{
+    background-color: rgba(189, 189, 189, 0.25);
+}
