@@ -57,7 +57,6 @@ const MyToys = () => {
     return (
         <div className="">
             <div className="min-h-screen max-w-7xl container mx-auto">
-                <h3>My toys: {toys.length}</h3>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
                         {/* head */}
