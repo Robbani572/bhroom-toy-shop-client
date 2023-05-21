@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
 
     const updateUser = (displayName, photoURL) => {
         setLoading(true)
-        return updateProfile(auth.currentUser, {displayName, photoURL})
+        return updateProfile(auth.currentUser, { displayName, photoURL })
     }
 
     const logOut = () => {
@@ -35,7 +35,28 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             setLoading(false)
+            if (currentUser && currentUser.email) {
+                const userEmail = {
+                    email: currentUser.email
+                }
+                fetch('https://bhroom-toy-shop-server-robbani572.vercel.app/jwtToken', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userEmail)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('token', data.token)
+                    })
+            }
+            else{
+                localStorage.removeItem('token')
+            }
         })
+        
         // Stop observing while unmounting
         return () => {
             return unsubscribe

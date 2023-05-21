@@ -11,7 +11,7 @@ const MyToys = () => {
     const [toys, setToys] = useState([])
     const navigate = useNavigate()
 
-    const url = `http://localhost:5444/products?email=${user?.email}`;
+    const url = `https://bhroom-toy-shop-server-robbani572.vercel.app/products?email=${user?.email}`;
     console.log(user.email)
 
     useEffect(() => {
@@ -27,7 +27,6 @@ const MyToys = () => {
                     setToys(data)
                 }
                 else{
-                    logOut()
                     navigate('/')
                 }
             })
@@ -36,7 +35,7 @@ const MyToys = () => {
     const handleDelete = id => {
         const procced = confirm('Are you sure?')
         if(procced){
-            fetch(`http://localhost:5444/products/${id}`, {
+            fetch(`https://bhroom-toy-shop-server-robbani572.vercel.app/products/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -57,7 +56,7 @@ const MyToys = () => {
     }
 
     return (
-        <div className="my-32">
+        <div className="">
             <div className="min-h-screen max-w-7xl container mx-auto">
             <h3>My toys: {toys.length}</h3>
             <div className="overflow-x-auto w-full">

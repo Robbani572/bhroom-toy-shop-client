@@ -43,7 +43,7 @@ const UpdateToy = () => {
         console.log(newToy)
 
         //send to server
-        fetch(`http://localhost:5444/products/${_id}`, {
+        fetch(`https://bhroom-toy-shop-server-robbani572.vercel.app/products/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

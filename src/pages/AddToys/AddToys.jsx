@@ -40,7 +40,7 @@ const AddToys = () => {
         console.log(newToy)
 
         //send to server
-        fetch("http://localhost:5444/products", {
+        fetch("https://bhroom-toy-shop-server-robbani572.vercel.app/products", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

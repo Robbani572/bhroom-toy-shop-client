@@ -8,7 +8,7 @@ const Shop = () => {
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch('https://bhroom-toy-shop-server.vercel.app/products')
+        fetch('https://bhroom-toy-shop-server-robbani572.vercel.app/products')
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
