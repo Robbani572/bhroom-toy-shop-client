@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "toy-shop-client-67333",
+    "deploy": "toy-shop-client-67333",
+    "firebase deploy": "toy-shop-client-67333"
+  },
+  "targets": {},
+  "etags": {}
+}

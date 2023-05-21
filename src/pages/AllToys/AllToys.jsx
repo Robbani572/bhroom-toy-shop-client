@@ -6,30 +6,30 @@ import { useEffect, useState } from "react";
 const AllToys = () => {
 
     const toys = useLoaderData()
-    const [currentPage, setCurrentPage] = useState(1)
-    const [toyData, setToyData] = useState([])
+    // const [currentPage, setCurrentPage] = useState(1)
+    // const [toyData, setToyData] = useState([])
 
-    const totalToys = toys.length;
-    const itemsPerPage = 10;
-    const totalPages = Math.ceil(totalToys / itemsPerPage)
+    // const totalToys = toys.length;
+    // const itemsPerPage = 10;
+    // const totalPages = Math.ceil(totalToys / itemsPerPage)
 
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i)
-    }
-    console.log(totalToys)
+    // const pageNumbers = [];
+    // for (let i = 1; i <= totalPages; i++) {
+    //     pageNumbers.push(i)
+    // }
+    // console.log(totalToys)
 
-    const url = `http://localhost:5444/products?page=${currentPage}&limit=${itemsPerPage}`
+    // const url = `http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`
 
-    useEffect(() => {
-        const fetchData = async() => {
-            const response = await fetch (url)
-            const data = await response.json()
-            setToyData(data)
-            console.log(data)
-        }
-        fetchData()
-    },[currentPage, itemsPerPage, url])
+    // useEffect(() => {
+    //     const fetchData = async() => {
+    //         const response = await fetch (url)
+    //         const data = await response.json()
+    //         setToyData(data)
+    //         console.log(data)
+    //     }
+    //     fetchData()
+    // },[currentPage, itemsPerPage, url])
 
     const handleSearch = (event) => {
         event.preventDefault()
@@ -37,7 +37,7 @@ const AllToys = () => {
         const search = form.search.value;
         console.log(search)
 
-        const url = `http://localhost:5444/products?name=${search}`
+        const url = `http://localhost:5000/products?name=${search}`
 
 
         fetch(url)
@@ -82,7 +82,7 @@ const AllToys = () => {
 
                 </table>
             </div>
-            <div className="mt-20">
+            {/* <div className="mt-20">
                 <div className="btn-group flex justify-center">
                     {
                         pageNumbers.map(number => <button 
@@ -94,7 +94,7 @@ const AllToys = () => {
                         >{number}</button>)
                     }
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

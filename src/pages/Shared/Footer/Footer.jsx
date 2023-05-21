@@ -3,7 +3,7 @@ import logo from '../../../assets/images/bhrom-logo1.png'
 
 const Footer = () => {
     return (
-        <footer className="p-10 bg-base-200 text-base-content max-w-7xl container mx-auto">
+        <footer className="p-10 bg-base-300 text-base-content max-w-7xl container mx-auto">
             <div className='footer'>
             <div>
                 <img src={logo} alt="Bhroom Shop" />
@@ -27,7 +27,7 @@ const Footer = () => {
                 <a className="link link-hover">Main Brance(New York, 401 road)</a>
             </div>
             </div>
-            <p className='flex items-center font-bold justify-center gap-4 mt-10'>All Copyright <FaCopyright className='w-6'></FaCopyright> By <img className='w-32' src={logo} alt="" /> || 2023 </p>
+            <p className='flex items-center font-bold justify-center gap-4 mt-14'>All Copyright <FaCopyright className='w-6'></FaCopyright> By <img className='w-32' src={logo} alt="" /> || 2023 </p>
         </footer>
     );
 };

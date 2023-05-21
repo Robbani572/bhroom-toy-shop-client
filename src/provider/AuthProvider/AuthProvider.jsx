@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
 
@@ -10,10 +10,16 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const googleProvider = new GoogleAuthProvider();
 
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const signInWithGoogle = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
     }
 
     const singInUser = (email, password) => {
@@ -35,26 +41,26 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             setLoading(false)
-            if (currentUser && currentUser.email) {
-                const userEmail = {
-                    email: currentUser.email
-                }
-                fetch('https://bhroom-toy-shop-server-robbani572.vercel.app/jwtToken', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(userEmail)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        localStorage.setItem('token', data.token)
-                    })
-            }
-            else{
-                localStorage.removeItem('token')
-            }
+            // if (currentUser && currentUser.email) {
+            //     const userEmail = {
+            //         email: currentUser.email
+            //     }
+            //     fetch('https://toy-shop1-server.vercel.app/jwtToken', {
+            //         method: 'POST',
+            //         headers: {
+            //             'content-type': 'application/json'
+            //         },
+            //         body: JSON.stringify(userEmail)
+            //     })
+            //         .then(res => res.json())
+            //         .then(data => {
+            //             console.log(data)
+            //             localStorage.setItem('token', data.token)
+            //         })
+            // }
+            // else{
+            //     localStorage.removeItem('token')
+            // }
         })
         
         // Stop observing while unmounting
@@ -67,6 +73,7 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         createUser,
+        signInWithGoogle,
         singInUser,
         updateUser,
         logOut

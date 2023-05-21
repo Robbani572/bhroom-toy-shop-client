@@ -3,15 +3,31 @@ import login from '../../../assets/images/Authentication/login.png'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
 
-    const {singInUser, loading} = useContext(AuthContext)
+    const {singInUser, loading, signInWithGoogle} = useContext(AuthContext)
     const [error, setError] = useState()
     const [success, setSuccess] = useState()
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
+
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+        .then(result => {
+            const loggedUser = result.user;
+            Swal.fire({
+                title: 'Success!',
+                text: 'Registered successfuly',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
+            navigate(from, { replace: true })
+
+        })
+    }
 
     const handleLogIn = (event) => {
         event.preventDefault()
@@ -75,6 +91,12 @@ const Login = () => {
                                 <p className='text-green-600 text-center'>{success}</p>
                             </div>
                         </form>
+                        <div className="divider">OR</div>
+                            <div className='flex justify-center'>
+                                <button onClick={handleSignInWithGoogle} className="btn btn-circle">
+                                    <FaGoogle></FaGoogle>
+                                </button>
+                            </div>
                     </div>
                 </div>
             </div>
