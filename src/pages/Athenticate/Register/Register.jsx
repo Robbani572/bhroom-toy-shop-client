@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
 import { FaGoogle } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
 
@@ -12,6 +13,7 @@ const Register = () => {
     const [success, setSuccess] = useState()
     const navigate = useNavigate();
     const location = useLocation()
+    useTitle('Bhroom | Register')
     const from = location.state?.from?.pathname || '/';
 
     const handleRegisterWithGoogle = () => {

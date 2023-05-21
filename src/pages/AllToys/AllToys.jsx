@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import ToysTable from "./ToysTable";
 import { useEffect, useState } from "react";
+import useTitle from "../../hooks/useTitle";
 
 
 const AllToys = () => {
+
+    useTitle('Bhroom | All Toys')
 
     const toys = useLoaderData()
     // const [currentPage, setCurrentPage] = useState(1)

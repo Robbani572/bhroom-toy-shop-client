@@ -2,12 +2,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
+import useTitle from "../../hooks/useTitle";
 
 const UpdateToy = () => {
 
     const {user} = useContext(AuthContext)
     const toy = useLoaderData()
     const navigate = useNavigate()
+    useTitle('Bhroom | Update Toy')
 
     const {_id, img, price, category, stock, name, seler, rating, ratingCount, shipping, description } = toy
 

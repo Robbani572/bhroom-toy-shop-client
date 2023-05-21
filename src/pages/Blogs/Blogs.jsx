@@ -1,6 +1,10 @@
+import useTitle from "../../hooks/useTitle";
 
 
 const Blogs = () => {
+
+    useTitle('Bhroom | Blogs')
+
     return (
         <div className="min-h-screen blogs-bg">
             <div className="flex items-center max-w-7xl container mx-auto justify-center p-8">

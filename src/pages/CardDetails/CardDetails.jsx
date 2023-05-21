@@ -2,11 +2,13 @@ import { Rating } from '@smastrom/react-rating'
 import { FaCheck, FaCross } from "react-icons/fa";
 import LazyLoad from 'react-lazy-load';
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from '../../hooks/useTitle';
 
 
 const CardDetails = () => {
 
     const toy = useLoaderData()
+    useTitle('Bhroom | Toy Details')
 
     const { _id, img, price, rating, shipping, ratingCount, stock, seller } = toy
 
