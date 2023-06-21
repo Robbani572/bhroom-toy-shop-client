@@ -24,7 +24,7 @@ const Shop = () => {
             >
                 
                 <TabList className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-8">
-                    <Tab className="text-2xl font-bold cursor-pointer text-center">All</Tab>
+                    <Tab className="text-2xl font-bold cursor-pointer text-center">All Toy</Tab>
                     <Tab className="text-2xl font-bold cursor-pointer text-center">Sports car</Tab>
                     <Tab className="text-2xl font-bold cursor-pointer text-center">Mini Fire Truck</Tab>
                     <Tab className="text-2xl font-bold cursor-pointer text-center">Truck</Tab>
